@@ -76,7 +76,7 @@ const Home = ({ home, provider, account, escrow, togglePop }) => {
       setHasBought(true);
 
       // Display success toast
-      toast.success("Purchase successful!", {
+      toast.success("Your Request is been processed", {
         position: "top-right",
         autoClose: 3000, // Close the toast after 3 seconds
         hideProgressBar: false,
