@@ -88,7 +88,7 @@ const Home = ({ home, provider, account, escrow, togglePop }) => {
       console.error("Error during purchase:", error);
 
       // Display error toast
-      toast.success("Purchase successful!.", {
+      toast.success("Your Request is been processed!.", {
         position: "top-right",
         autoClose: 5000, // Close the toast after 5 seconds
         hideProgressBar: false,

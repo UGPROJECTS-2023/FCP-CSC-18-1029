@@ -55,12 +55,12 @@ function Navbar({ account, setAccount }) {
   return (
     <>
       <div className={`sticky top-0 transition-transform duration-500 z-30`}>
-        <div className="container ">
-          <div className="flex items-center justify-between py-6 transition-transform duration-500 md:py-8">
+        <div className="container">
+          <div className="flex md:items-center md:justify-between py-6 justify-end transition-transform duration-500 md:py-8">
             <div>
               <Link
                 to="/"
-                className="text-white font-bold text-3xl font-Bricolage_Grotesque"
+                className="text-white font-bold text-3xl font-Bricolage_Grotesque hidden md:block"
               >
                 {/* <Logo /> */}
                 Crypto-Home
@@ -138,7 +138,6 @@ function Navbar({ account, setAccount }) {
             <div className="absolute top-0 left-0 z-10 h-screen p-4 bg-[#060B12] w-80 lg:hidden pb-11">
               <div className="flex flex-col h-full mt-4">
                 <Link to="/" onClick={navCloseHandler}>
-                  Logo
                   {/* <Logo /> */}
                 </Link>
 
