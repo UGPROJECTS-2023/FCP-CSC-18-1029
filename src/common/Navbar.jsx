@@ -158,33 +158,15 @@ function Navbar({ account, setAccount }) {
                       </span>
                     </Link>
                   ))}
-                  <a
-                    href="https://docs.audaxious.com/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={navCloseHandler}
-                    className={`flex text-[15px] font-light font-Poppins items-center cursor-pointer text-[#D1CBCB] gap-2 py-2 px-2 rounded-full transition-colors hover:text-white`}
-                  >
-                    Resources
-                  </a>
-                  <a
-                    href="https://blog.audaxious.com/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={navCloseHandler}
-                    className={`flex text-[15px] font-light font-Poppins items-center cursor-pointer text-[#D1CBCB] gap-2 py-2 px-2 rounded-full transition-colors hover:text-white`}
-                  >
-                    Blog
-                  </a>
                 </div>
 
-                <div className="p-2 mt-6 font-medium">
+                {/* <div className="p-2 mt-6 font-medium">
                   <Link to="/" target="_blank">
                     <button className="md:hidden inline-block w-full text-center px-12 py-2 rounded-[4px] text-[#FEFEFF] text-[16px] border-[0.75px] border-[#FEFEFF] shadow shadow-[#181E24] opacity-70">
                       Log In
                     </button>
                   </Link>
-                </div>
+                </div> */}
               </div>
 
               <button
