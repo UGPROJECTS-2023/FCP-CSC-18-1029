@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Transition } from "@headlessui/react";
 import { Link } from "react-router-dom";
+import { ethers } from "ethers";
 
 // import { ReactComponent as Menu } from "../assets/menu.svg";
 
@@ -16,7 +17,15 @@ const links = [
   },
 ];
 
-function Navbar() {
+function Navbar({ account, setAccount }) {
+  const connectHandler = async () => {
+    const accounts = await window.ethereum.request({
+      method: "eth_requestAccounts",
+    });
+    const account = ethers.utils.getAddress(accounts[0]);
+    setAccount(account);
+  };
+
   const [navOpen, setNavOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -48,14 +57,13 @@ function Navbar() {
       <div className={`sticky top-0 transition-transform duration-500 z-30`}>
         <div className="container ">
           <div className="flex items-center justify-between py-6 transition-transform duration-500 md:py-8">
-            <div
-              className={`${
-                isScrolled ? "md:opacity-0" : "md:opacity-100 ease-out"
-              }`}
-            >
-              <Link to="/">
+            <div>
+              <Link
+                to="/"
+                className="text-white font-bold text-3xl font-Bricolage_Grotesque"
+              >
                 {/* <Logo /> */}
-                Logo
+                Crypto-Home
               </Link>
             </div>
             <div className="items-center hidden lg:flex border-[0.25px] bg-[#060b12] h-[40px] border-[#24343D] rounded-[48px]">
@@ -73,33 +81,35 @@ function Navbar() {
                   </span>
                 </Link>
               ))}
-              <a
-                href="https://docs.audaxious.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`flex text-[15px] font-light font-Poppins items-center cursor-pointer text-[#D1CBCB] gap-2 py-2 px-4 rounded-full transition-colors hover:text-white`}
-              >
-                Resources
-              </a>
-              <a
-                href="https://blog.audaxious.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`flex text-[15px] font-light font-Poppins items-center cursor-pointer text-[#D1CBCB] gap-2 py-2 px-4 rounded-full transition-colors hover:text-white`}
-              >
-                Blog
-              </a>
             </div>
             <div
-              className={`font-medium transition-transform duration-500 ${
-                isScrolled ? "opacity-0" : "opacity-100 ease-out"
-              }`}
+            // className={`font-medium transition-transform duration-500 ${
+            //   isScrolled ? "opacity-0" : "opacity-100 ease-out"
+            // }`}
             >
-              <Link to={"/"} target="_blank">
-                <button className="hidden lg:inline-block px-12 py-2 rounded-[4px] text-[#FEFEFF] text-[16px] border-[0.75px] border-[#FEFEFF] shadow shadow-[#181E24] opacity-70">
+              <nav className="flex items-end justify-end container">
+                {account ? (
+                  <button
+                    type="button"
+                    className="bg-blue-600 px-10 text-white font-Poppins py-3 rounded-lg"
+                  >
+                    {account.slice(0, 6) + "..." + account.slice(38, 42)}
+                  </button>
+                ) : (
+                  <button
+                    type="button"
+                    className="bg-blue-600 px-10 text-white font-Poppins py-3 rounded-lg"
+                    onClick={connectHandler}
+                  >
+                    Connect
+                  </button>
+                )}
+              </nav>
+              {/* <Link to="/buy-homes" target="_blank">
+                <button className="hidden lg:inline-block font-Raleway px-12 py-2 rounded-[4px] text-[#FEFEFF] text-[16px] border-[0.75px] border-[#FEFEFF] shadow shadow-[#181E24] opacity-70">
                   Buy House
                 </button>
-              </Link>
+              </Link> */}
             </div>
 
             <button

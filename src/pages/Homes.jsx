@@ -29,11 +29,6 @@ const Homes = () => {
               <br className="hidden md:block" />
               members, grow communities, and enhance adoption
             </p>
-            {/* <p className='text-[#A2B3BC] font-Poppins font-normal text-[15px] md:text-[18px] text-center mt-6'>
-            Using tech and AI to easily connect millions to web3 and share
-            <br className='hidden md:block' />
-            blockchain benefits with social network users
-          </p> */}
             <div className="flex items-center gap-6 pt-8">
               <Link to="/" target="_blank">
                 <button className="bg-[#555656] py-2 md:px-10 px-8 rounded-[4px] border-[2px] border-[#818282] text-[#FDFDFD] md:text-[18px] text-[10.95px] font-normal font-Poppins">
@@ -43,7 +38,7 @@ const Homes = () => {
 
               <Link to="/">
                 <button className="bg-[#79C4EC] py-2 md:px-10 px-8 rounded-[4px] border-[2px] border-[#15151A] text-[#151519] md:text-[18px] text-[10.95px] font-normal font-Poppins">
-                  Engage Portal
+                  Get Started
                 </button>
               </Link>
             </div>
@@ -58,7 +53,7 @@ const Homes = () => {
                 3,200
               </h2>
               <p className="text-[#818282] font-Poppins text-[13.5px] md:text-[18px] font-normal">
-                Active Users
+                House Sold
               </p>
             </div>
             <div>
@@ -66,7 +61,7 @@ const Homes = () => {
                 500
               </h2>
               <p className="text-[#818282] font-Poppins text-[13.5px] md:text-[18px] font-normal">
-                Downloads
+                Users
               </p>
             </div>
             <div>
@@ -74,46 +69,9 @@ const Homes = () => {
                 107
               </h2>
               <p className="text-[#818282] font-Poppins text-[13.5px] md:text-[18px] font-normal">
-                Communities
+                Leases
               </p>
             </div>
-          </div>
-        </div>
-
-        {/* Download App Section  */}
-        <section id="Download App" className="py-10 md:mt-10 bg-[#13161E]">
-          <div className="container flex flex-wrap items-center justify-center text-center gap-y-12 md:gap-x-32">
-            <div>
-              <h3 className="text-[#FFFFFF] font-medium text-[27px] md:text-[32px] font-Bricolage_Grotesque">
-                Download Our mobile app
-              </h3>
-              <p className="font-Poppins text-[17px] lg:text-left font-light text-[#968F8F] leading-[28px] mb-4">
-                Do more with audaxious, downlaod
-                <br /> the audaxious mobile app to get
-                <br />
-                started
-              </p>
-              <div className="flex items-center gap-4">
-                {/* <Apple />
-                <Google /> */}
-              </div>
-            </div>
-            {/* <App /> */}
-          </div>
-        </section>
-
-        {/* Get Started Section  */}
-        <div className="container py-20">
-          <div className="flex flex-col items-center justify-center text-center">
-            <h2 className="bg-gradient-to-b from-[#0C74F1] to-[#28EDDB] bg-clip-text text-transparent font-Bricolage_Grotesque font-medium text-[36px]">
-              Get Started With Audaxious
-            </h2>
-            <p className="text-[#EBEDED] font-Poppins text-[18px] leading-[30px] font-light mb-6 mt-2">
-              Earn rewards. Promote Products & Brands. Build Communities{" "}
-            </p>
-            <button className="bg-[#EBEDED] rounded-[4px] font-Raleway text-[#151519] text-[18px] font-medium py-3 px-12">
-              Create account
-            </button>
           </div>
         </div>
       </Container>

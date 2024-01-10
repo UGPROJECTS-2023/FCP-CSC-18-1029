@@ -11,30 +11,20 @@ const Navigation = ({ account, setAccount }) => {
   };
 
   return (
-    <nav>
-      <ul className="nav__links">
-        <li>
-          <a href="#">Buy</a>
-        </li>
-        <li>
-          <a href="#">Rent</a>
-        </li>
-        <li>
-          <a href="#">Sell</a>
-        </li>
-      </ul>
-
-      <div className="nav__brand">
-        {/* <img src={logo} alt="Logo" /> */}
-        <h1>Homes</h1>
-      </div>
-
+    <nav className="flex items-end justify-end container">
       {account ? (
-        <button type="button" className="nav__connect">
+        <button
+          type="button"
+          className="bg-blue-600 px-10 text-white font-Poppins py-3 rounded-lg"
+        >
           {account.slice(0, 6) + "..." + account.slice(38, 42)}
         </button>
       ) : (
-        <button type="button" className="nav__connect" onClick={connectHandler}>
+        <button
+          type="button"
+          className="bg-blue-600 px-10 text-white font-Poppins py-3 rounded-lg"
+          onClick={connectHandler}
+        >
           Connect
         </button>
       )}

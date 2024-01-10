@@ -5,9 +5,7 @@ import Footer from "../common/Footer";
 const Container = ({ children }) => {
   return (
     <>
-      <Navbar />
       <main>{children}</main>
-      <Footer />
     </>
   );
 };
