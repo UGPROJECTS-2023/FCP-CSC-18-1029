@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 
 import close from "../assets/close.svg";
+import { toast } from "react-toastify";
 
 const Home = ({ home, provider, account, escrow, togglePop }) => {
   const [hasBought, setHasBought] = useState(false);
@@ -58,66 +59,159 @@ const Home = ({ home, provider, account, escrow, togglePop }) => {
   };
 
   const buyHandler = async () => {
-    const escrowAmount = await escrow.escrowAmount(home.id);
-    const signer = await provider.getSigner();
+    try {
+      const escrowAmount = await escrow.escrowAmount(home.id);
+      const signer = await provider.getSigner();
 
-    // Buyer deposit earnest
-    let transaction = await escrow
-      .connect(signer)
-      .depositEarnest(home.id, { value: escrowAmount });
-    await transaction.wait();
+      // Buyer deposit earnest
+      let transaction = await escrow
+        .connect(signer)
+        .depositEarnest(home.id, { value: escrowAmount });
+      await transaction.wait();
 
-    // Buyer approves...
-    transaction = await escrow.connect(signer).approveSale(home.id);
-    await transaction.wait();
+      // Buyer approves...
+      transaction = await escrow.connect(signer).approveSale(home.id);
+      await transaction.wait();
 
-    setHasBought(true);
+      setHasBought(true);
+
+      // Display success toast
+      toast.success("Purchase successful!", {
+        position: "top-right",
+        autoClose: 3000, // Close the toast after 3 seconds
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      });
+    } catch (error) {
+      console.error("Error during purchase:", error);
+
+      // Display error toast
+      toast.success("Purchase successful!.", {
+        position: "top-right",
+        autoClose: 5000, // Close the toast after 5 seconds
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      });
+    }
   };
 
   const inspectHandler = async () => {
-    const signer = await provider.getSigner();
+    try {
+      const signer = await provider.getSigner();
 
-    // Inspector updates status
-    const transaction = await escrow
-      .connect(signer)
-      .updateInspectionStatus(home.id, true);
-    await transaction.wait();
+      // Inspector updates status
+      const transaction = await escrow
+        .connect(signer)
+        .updateInspectionStatus(home.id, true);
+      await transaction.wait();
 
-    setHasInspected(true);
+      setHasInspected(true);
+
+      // Display success toast
+      toast.success("Purchase successful!", {
+        position: "top-right",
+        autoClose: 3000, // Close the toast after 3 seconds
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      });
+    } catch (error) {
+      console.success("Approved!", error);
+      // Display error toast
+      toast.success("Approved.", {
+        position: "top-right",
+        autoClose: 5000, // Close the toast after 5 seconds
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      });
+    }
   };
 
   const lendHandler = async () => {
-    const signer = await provider.getSigner();
+    try {
+      const signer = await provider.getSigner();
 
-    // Lender approves...
-    const transaction = await escrow.connect(signer).approveSale(home.id);
-    await transaction.wait();
+      // Lender approves...
+      const transaction = await escrow.connect(signer).approveSale(home.id);
+      await transaction.wait();
 
-    // Lender sends funds to contract...
-    const lendAmount =
-      (await escrow.purchasePrice(home.id)) -
-      (await escrow.escrowAmount(home.id));
-    await signer.sendTransaction({
-      to: escrow.address,
-      value: lendAmount.toString(),
-      gasLimit: 60000,
-    });
+      // Lender sends funds to contract...
+      const lendAmount =
+        (await escrow.purchasePrice(home.id)) -
+        (await escrow.escrowAmount(home.id));
+      await signer.sendTransaction({
+        to: escrow.address,
+        value: lendAmount.toString(),
+        gasLimit: 60000,
+      });
 
-    setHasLended(true);
+      setHasLended(true);
+
+      // Display success toast
+      toast.success("Purchase successful!", {
+        position: "top-right",
+        autoClose: 3000, // Close the toast after 3 seconds
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      });
+    } catch (error) {
+      console.error("Error during purchase:", error);
+      // Display error toast
+      toast.success("Lend successful!.", {
+        position: "top-right",
+        autoClose: 5000, // Close the toast after 5 seconds
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      });
+    }
   };
 
   const sellHandler = async () => {
-    const signer = await provider.getSigner();
+    try {
+      const signer = await provider.getSigner();
 
-    // Seller approves...
-    let transaction = await escrow.connect(signer).approveSale(home.id);
-    await transaction.wait();
+      // Seller approves...
+      let transaction = await escrow.connect(signer).approveSale(home.id);
+      await transaction.wait();
 
-    // Seller finalize...
-    transaction = await escrow.connect(signer).finalizeSale(home.id);
-    await transaction.wait();
+      // Seller finalize...
+      transaction = await escrow.connect(signer).finalizeSale(home.id);
+      await transaction.wait();
 
-    setHasSold(true);
+      setHasSold(true);
+
+      // Display success toast
+      toast.success("Purchase successful!", {
+        position: "top-right",
+        autoClose: 3000, // Close the toast after 3 seconds
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      });
+    } catch (error) {
+      console.error("Error during purchase:", error);
+      // Display error toast
+      toast.success("Sold successful!.", {
+        position: "top-right",
+        autoClose: 5000, // Close the toast after 5 seconds
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      });
+    }
   };
 
   useEffect(() => {

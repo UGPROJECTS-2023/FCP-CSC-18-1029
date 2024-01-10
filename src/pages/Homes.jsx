@@ -14,20 +14,19 @@ const Homes = () => {
         <section id="Homes" className="container pt-8">
           <div className="flex flex-col lg:bg-custom md:max-h-[512px] overflow-hidden w-full bg-no-repeat bg-center items-center justify-center md:border-[2px] md:border-[#24343D] md:py-24 py-10 rounded-[24px]">
             <h1 className="lg:text-[72px] md:text-[52px] text-[26px] leading-[36px] md:leading-[60px] lg:leading-[85px] font-semibold font-Bricolage_Grotesque text-center">
-              <p className="bg-gradient-to-b from-[#0C74F1] to-[#28EDDB] bg-clip-text text-transparent">
-                <span className="text-[#EBEDED]">Providing </span>
-                web 3.0 benefits
-                <br /> through social networks
+              <p className="bg-gradient-to-b from-[#8ba9cd] to-[#28EDDB] bg-clip-text text-transparent">
+                <span className="text-[#EBEDED]">Unlocking </span>
+                Real Estate's Future with <br /> Blockchain and Web 3.0
               </p>
             </h1>
             <p className="text-[#A2B3BC] font-Poppins font-normal text-[15px] md:text-[18px] text-center mt-6">
-              Seamlessly connecting millions of social network users to web3 and
-              its benefits.
+              Hero Heading: Unlocking Real Estate's Future with Blockchain and
+              Web 3.0 Hero Text: Welcome to the next frontier in real estate
               <br className="hidden md:block" />
-              With AI and Web3, AudaXious offers projects an optimal way to
-              incentivize
+              innovation. Our cutting-edge blockchain-powered Web 3.0 platform
+              is revolutionizing the way properties are bought
               <br className="hidden md:block" />
-              members, grow communities, and enhance adoption
+              sold, and managed.{" "}
             </p>
             <div className="flex items-center gap-6 pt-8">
               <Link to="/" target="_blank">
